@@ -21,31 +21,15 @@ int isempty(queue * q)
 {
  if(q->front==q->rear)
  return 1;
- else if((q->front==max) && (q->rear!=max))
- {
- q->front==0;
- return 0;
- }
  return 0;
 }
 //isfull
 int isfull(queue * q)
 {
- if(q->rear==max)
+ if((q->rear+1)%max==q->front)
  {
   if(q->front!=0)
-  {
-   q->rear=0;
-   return 0;
-  }
-  else
    return 1;
- }
- else if(q->front!=0)
- {
-  if(q->rear>=q->front)
-  return 1;
- }
  return 0;
 }
 //additem
@@ -56,7 +40,7 @@ void additem(queue *q,int value)
  else
  {
  q->info[q->rear]=value;
- q->rear++;
+ q->rear=(q->rear+1)%max;
  }
 }
 //removeitem
@@ -68,7 +52,7 @@ int removeitem(queue *q)
  else
  {
   n=q->front;
-  q->front++;
+  q->front=(q->front+1)%max;
  }
  return n;
 }
