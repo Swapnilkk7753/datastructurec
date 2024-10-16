@@ -45,7 +45,6 @@ void display(node *head)
 int main()
 {
     node *head=NULL;
-    int i;
     clrscr();
     head=create(head);
     display(head);
