@@ -11,27 +11,25 @@ typedef struct node
 //creare linked list
 node * create(node *head)
 {
- node *nhead;
+ node *nhead,*temp;
  int i,k;
  for(i=0;i<4;i++)
  {
   printf("enter the value for inserting\n");
   scanf("%d",&k);
+  temp=(node *)malloc(sizeof(node));
+   temp->data=k;
+   temp->next=NULL;
   if(head==NULL)
     {
-      head=(node *)malloc(1*sizeof(node));
-      head->data=k;
-      head->next=NULL;
+      head=temp;
       nhead=head;
     }//if ends
   else
     {
      while(nhead->next!=NULL)
      nhead=nhead->next;
-     nhead->next=(node *)malloc(1*sizeof(node));
-     nhead=nhead->next;
-     nhead->data=k;
-     nhead->next=NULL;
+     nhead->next=temp
     } //else ends
   }//loop ends
  return head;
