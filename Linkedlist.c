@@ -27,9 +27,8 @@ node * create(node *head)
     }//if ends
   else
     {
-     while(nhead->next!=NULL)
+     nhead->next=temp;
      nhead=nhead->next;
-     nhead->next=temp
     } //else ends
   }//loop ends
  return head;
